@@ -1140,7 +1140,7 @@ const AuditLogTab = ({ showToast }) => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <label htmlFor="from-date" className="sr-only">From Date</label>
+        <label htmlFor="from-date" className="text-xl flex items-center">From Date</label>
         <input
           type="date"
           id="from-date"
@@ -1148,7 +1148,7 @@ const AuditLogTab = ({ showToast }) => {
           value={fromDate}
           onChange={(e) => setFromDate(e.target.value)}
         />
-        <label htmlFor="to-date" className="sr-only">To Date</label>
+        <label htmlFor="to-date" className="text-xl flex items-center">To Date</label>
         <input
           type="date"
           id="to-date"
