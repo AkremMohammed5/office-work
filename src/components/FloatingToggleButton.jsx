@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function FloatingToggleButton() {
-  const pages = ["/login", "/dashboard", "/admin"];
+  const pages = ["/", "/dashboard", "/admin"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
