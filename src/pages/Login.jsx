@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';        // <-- import hook
 import companyLogo from '../assets/logo.png';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, User, UserLock} from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
@@ -55,8 +55,8 @@ const handleSubmit = async (e) => {
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label className="text-sm font-light text-white/80">
-                {t('login.username_label')}
+              <label className="flex gap-1 items-end text-sm font-light text-white/80">
+               <User/> {t('login.username_label')}
               </label>
               <input
                 type="text"
@@ -68,8 +68,8 @@ const handleSubmit = async (e) => {
               />
             </div>
             <div>
-              <label className="text-sm font-light text-white/80">
-                {t('login.password_label')}
+              <label className="flex gap-1 items-end text-sm font-light text-white/80">
+              <UserLock/> {t('login.password_label')}
               </label>
               <input
                 type="password"
