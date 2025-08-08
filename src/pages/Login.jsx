@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';        // <-- import hook
@@ -18,8 +19,9 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setError(null);
 
+
   try {
-    const response = await fetch('/auth/login', {
+    const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: name, password }), // ✅ key fixed
@@ -39,7 +41,8 @@ const handleSubmit = async (e) => {
     }
 
     navigate('/dashboard');
-  } catch (err) {
+  } 
+  catch (err) {
     setError(err.message);
   }
 };
@@ -48,10 +51,17 @@ const handleSubmit = async (e) => {
     <div className="min-h-screen w-full bg-gradient-to-br from-green-600 via-gray-600 to-blue-500 flex items-center justify-center font-sans p-4">
       <div className="w-full max-w-6xl grid md:grid-cols-2 rounded-3xl overflow-hidden shadow-2xl relative">
         <div className="absolute inset-0 bg-white/10 backdrop-blur-xl z-0"></div>
-        <div className="w-full p-8 md:p-12 flex flex-col justify-center text-white relative z-10">
-          <h1 className="text-4xl font-bold mb-2">{t('login.title')}</h1>
-          <p className="text-white/80 mb-2">{t('login.subtitle')}</p>
-          <p className="text-white/80 mb-8">{t('login.prompt')}</p>
+        <div className="w-full p-4 sm:p-8 md:p-12 flex flex-col justify-center text-white relative z-10">
+          <div className='flex justify-between items-center'>
+            <div className='flex-col'>
+              <h1 className="text-4xl font-bold mb-2">{t('login.title')}</h1>
+              <p className="text-white/80 mb-2">{t('login.subtitle')}</p>
+              <p className="text-white/80 mb-8">{t('login.prompt')}</p>
+            </div>
+            <div className='md:hidden justify-center items-center'>
+              <img src={companyLogo} alt="" className='size-40 h-fit pr-0' />         
+            </div>
+          </div>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
@@ -101,7 +111,7 @@ const handleSubmit = async (e) => {
             <div>
               <button
                 type="submit"
-                className="w-full py-3 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 rounded-lg font-bold text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full py-3 bg-green-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-green-600 rounded-lg font-bold text-white shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 {t('login.button_signin')}
               </button>
